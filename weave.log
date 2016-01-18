@@ -1,0 +1,123 @@
+Mon Jan 11 16:54:32 CST 2016
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity$3.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.LoginActivity$3' (LoginActivity.java:132) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$2$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$2$1' (PrivateInfoActivity.java:33) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.widgets.swipemenu.SwipeMenuView.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.widgets.swipemenu.SwipeMenuView' (SwipeMenuView.java:79) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity$2.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.LoginActivity$2' (LoginActivity.java:111) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$2.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$2' (PrivateInfoActivity.java:29) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity' (PrivateInfoActivity.java:15) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.MainActivity$1' (MainActivity.java:63) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.LoginActivity' (LoginActivity.java:90) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:46) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(boolean com.yeepay.materialdesign.MainActivity.onNavigationItemSelected(android.view.MenuItem))' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:189) advised by before advice from 'com.yeepay.logservice.aspect.CustomerAspect' (LogserviceSDK.jar!CustomerAspect.class(from CustomerAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.AppCompatPreferenceActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.AppCompatPreferenceActivity' (AppCompatPreferenceActivity.java:25) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.SettingsActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.SettingsActivity' (SettingsActivity.java:152) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$1' (PrivateInfoActivity.java:22) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+/Users/yo/AndroidStudioProjects/MaterialDesign/app/libs/LogserviceSDK.jar!com/yeepay/logservice/aspect/BehaviorAspect.class [warning] advice defined in com.yeepay.logservice.aspect.BehaviorAspect has not been applied [Xlint:adviceDidNotMatch]
+	
+Mon Jan 11 17:01:41 CST 2016
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity$3.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.LoginActivity$3' (LoginActivity.java:132) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$2$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$2$1' (PrivateInfoActivity.java:33) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.widgets.swipemenu.SwipeMenuView.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.widgets.swipemenu.SwipeMenuView' (SwipeMenuView.java:79) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity$2.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.LoginActivity$2' (LoginActivity.java:111) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$2.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$2' (PrivateInfoActivity.java:29) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity' (PrivateInfoActivity.java:15) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.MainActivity$1' (MainActivity.java:64) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.LoginActivity' (LoginActivity.java:90) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:47) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(boolean com.yeepay.materialdesign.MainActivity.onNavigationItemSelected(android.view.MenuItem))' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:190) advised by before advice from 'com.yeepay.logservice.aspect.CustomerAspect' (LogserviceSDK.jar!CustomerAspect.class(from CustomerAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onResume())' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:244) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onPause())' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:250) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.AppCompatPreferenceActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.AppCompatPreferenceActivity' (AppCompatPreferenceActivity.java:25) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.SettingsActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.SettingsActivity' (SettingsActivity.java:152) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$1' (PrivateInfoActivity.java:22) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Tue Jan 12 16:42:07 CST 2016
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity$3.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.LoginActivity$3' (LoginActivity.java:130) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$2$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$2$1' (PrivateInfoActivity.java:33) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.widgets.swipemenu.SwipeMenuView.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.widgets.swipemenu.SwipeMenuView' (SwipeMenuView.java:79) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity$2.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.LoginActivity$2' (LoginActivity.java:110) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$2.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$2' (PrivateInfoActivity.java:29) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity' (PrivateInfoActivity.java:15) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.MainActivity$1' (MainActivity.java:64) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.LoginActivity' (LoginActivity.java:90) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:47) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(boolean com.yeepay.materialdesign.MainActivity.onNavigationItemSelected(android.view.MenuItem))' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:190) advised by before advice from 'com.yeepay.logservice.aspect.CustomerAspect' (LogserviceSDK.jar!CustomerAspect.class(from CustomerAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onResume())' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:244) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onPause())' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:250) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.AppCompatPreferenceActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.AppCompatPreferenceActivity' (AppCompatPreferenceActivity.java:25) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.SettingsActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.SettingsActivity' (SettingsActivity.java:152) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$1' (PrivateInfoActivity.java:22) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Tue Jan 12 16:43:53 CST 2016
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity$3.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.LoginActivity$3' (LoginActivity.java:130) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$2$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$2$1' (PrivateInfoActivity.java:33) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.widgets.swipemenu.SwipeMenuView.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.widgets.swipemenu.SwipeMenuView' (SwipeMenuView.java:79) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity$2.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.LoginActivity$2' (LoginActivity.java:110) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$2.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$2' (PrivateInfoActivity.java:29) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity' (PrivateInfoActivity.java:15) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.MainActivity$1' (MainActivity.java:64) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.LoginActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.LoginActivity' (LoginActivity.java:90) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:47) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(boolean com.yeepay.materialdesign.MainActivity.onNavigationItemSelected(android.view.MenuItem))' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:190) advised by before advice from 'com.yeepay.logservice.aspect.CustomerAspect' (LogserviceSDK.jar!CustomerAspect.class(from CustomerAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onResume())' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:244) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.MainActivity.onPause())' in Type 'com.yeepay.materialdesign.MainActivity' (MainActivity.java:250) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.AppCompatPreferenceActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.AppCompatPreferenceActivity' (AppCompatPreferenceActivity.java:25) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.SettingsActivity.onCreate(android.os.Bundle))' in Type 'com.yeepay.materialdesign.SettingsActivity' (SettingsActivity.java:152) advised by around advice from 'com.yeepay.logservice.aspect.TimeAspect' (LogserviceSDK.jar!TimeAspect.class(from TimeAspect.java))
+	
+Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$1' (PrivateInfoActivity.java:22) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
+	
+Tue Jan 12 16:48:24 CST 2016
