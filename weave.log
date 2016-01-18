@@ -121,3 +121,4 @@ Join point 'method-execution(void com.yeepay.materialdesign.SettingsActivity.onC
 Join point 'method-execution(void com.yeepay.materialdesign.PrivateInfoActivity$1.onClick(android.view.View))' in Type 'com.yeepay.materialdesign.PrivateInfoActivity$1' (PrivateInfoActivity.java:22) advised by before advice from 'com.yeepay.logservice.aspect.BehaviorAspect' (LogserviceSDK.jar!BehaviorAspect.class(from BehaviorAspect.java))
 	
 Tue Jan 12 16:48:24 CST 2016
+Mon Jan 18 15:07:44 CST 2016
