@@ -293,7 +293,7 @@ public class ProgressWheel extends View {
         mProgress -= 360f;
 
         // A full turn has been completed
-        // we run the callback with -1 in case we want to
+        // we run the callback with -card1 in case we want to
         // do something, like changing the color
         runCallback(-1.0f);
       }
@@ -437,7 +437,7 @@ public class ProgressWheel extends View {
    * Set the progress to a specific value,
    * the bar will be set instantly to that value
    *
-   * @param progress the progress between 0 and 1
+   * @param progress the progress between 0 and card1
    */
   public void setInstantProgress(float progress) {
     if (isSpinning) {
@@ -508,8 +508,8 @@ public class ProgressWheel extends View {
   }
 
   /**
-   * @return the current progress between 0.0 and 1.0,
-   * if the wheel is indeterminate, then the result is -1
+   * @return the current progress between 0.0 and card1.0,
+   * if the wheel is indeterminate, then the result is -card1
    */
   public float getProgress() {
     return isSpinning ? -1 : mProgress / 360.0f;
@@ -523,7 +523,7 @@ public class ProgressWheel extends View {
    * Set the progress to a specific value,
    * the bar will smoothly animate until that value
    *
-   * @param progress the progress between 0 and 1
+   * @param progress the progress between 0 and card1
    */
   public void setProgress(float progress) {
     if (isSpinning) {
@@ -647,7 +647,7 @@ public class ProgressWheel extends View {
 
   /**
    * @return the base spinning speed, in full circle turns per second
-   * (1.0 equals on full turn in one second), this value also is applied for
+   * (card1.0 equals on full turn in one second), this value also is applied for
    * the smoothness when setting a progress
    */
   public float getSpinSpeed() {
@@ -656,7 +656,7 @@ public class ProgressWheel extends View {
 
   /**
    * Sets the base spinning speed, in full circle turns per second
-   * (1.0 equals on full turn in one second), this value also is applied for
+   * (card1.0 equals on full turn in one second), this value also is applied for
    * the smoothness when setting a progress
    *
    * @param spinSpeed the desired base speed in full turns per second
@@ -691,9 +691,9 @@ public class ProgressWheel extends View {
      * is rounded to a float with two decimals.
      *
      * In indeterminate mode, the callback is called each time
-     * the wheel completes an animation cycle, with, the progress value is -1.0f
+     * the wheel completes an animation cycle, with, the progress value is -card1.0f
      *
-     * @param progress a double value between 0.00 and 1.00 both included
+     * @param progress a double value between 0.00 and card1.00 both included
      */
     public void onProgressUpdate(float progress);
   }

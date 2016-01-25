@@ -27,7 +27,7 @@ import android.app.Application;
  * @author Abelzzg
  * @version V1.0
  * @Description: com.yeepay.materialdesign
- * @date 16/1/11 上午10:37
+ * @date 16/card1/11 上午10:37
  */
 public class MyApplication extends Application {
     @Override
