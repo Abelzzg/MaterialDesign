@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "hello@qq.com:hello", "world@example.com:world"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -146,25 +146,25 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // Reset errors.
+        // 充值 errors信息.
         mEmailView.setError(null);
         mPasswordView.setError(null);
 
-        // Store values at the time of the login attempt.
+        //点击登录时 获取 email password 值 .
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
-        View focusView = null;
+        View focusView = null;//临时view用来指到mPasswordView或者mEmailView，当它们格式不正确的时候
 
-        // Check for a valid password, if the user entered one.
+        //检查密码格式
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
         }
 
-        // Check for a valid email address.
+        //检查email address格式
         if (TextUtils.isEmpty(email)) {
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
@@ -188,11 +188,23 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 验证email用户名
+     * @param email
+     * @return
+     */
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         return email.contains("@");
     }
 
+
+    /**
+     * 验证密码
+     *
+     * @param password
+     * @return
+     */
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
         return password.length() > 4;
@@ -272,12 +284,13 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(List<String> emailAddressCollection) {
             addEmailsToAutoComplete(emailAddressCollection);
         }
-    }    private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
+    }
+
+    private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
-
         mEmailView.setAdapter(adapter);
     }
 
@@ -297,19 +310,18 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
+            //假装多线程
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
             }
-
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
                     return pieces[1].equals(mPassword);
                 }
             }
-
             // TODO: register the new account here.
             return true;
         }
@@ -321,7 +333,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
                 finish();
-                startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

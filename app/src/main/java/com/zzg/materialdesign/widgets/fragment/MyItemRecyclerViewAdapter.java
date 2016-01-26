@@ -1,6 +1,7 @@
 package com.zzg.materialdesign.widgets.fragment;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 import com.zzg.materialdesign.R;
 import com.zzg.materialdesign.widgets.fragment.ItemFragment.OnListFragmentInteractionListener;
 import com.zzg.materialdesign.widgets.fragment.dummy.DummyContent.DummyItem;
+import com.zzg.materialdesign.widgets.fragment.dummy.DummyItemFilter;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -19,13 +23,18 @@ import java.util.List;
  */
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private List<DummyItem> mValues;
+    private static List<DummyItem> mValuesAll;
     private final OnListFragmentInteractionListener mListener;
 
+    private boolean isSearching = false;
+
     public MyItemRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+        mValuesAll = items;
         mValues = items;
         mListener = listener;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -73,5 +82,17 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";
         }
+    }
+
+    public void filter(String mSearchText) {
+        if (TextUtils.isEmpty(mSearchText)) {
+            isSearching = false;
+            mValues = mValuesAll;
+        } else {
+            isSearching = true;
+            DummyItemFilter dummyItemFilter = new DummyItemFilter(mValuesAll);
+            mValues = dummyItemFilter.filte(mSearchText);
+        }
+        this.notifyDataSetChanged();
     }
 }

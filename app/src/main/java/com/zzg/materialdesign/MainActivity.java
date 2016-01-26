@@ -8,14 +8,18 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
@@ -30,6 +34,7 @@ import android.widget.Toast;
 
 import com.zzg.materialdesign.widgets.fragment.CardViewFragment;
 import com.zzg.materialdesign.widgets.fragment.ItemFragment;
+import com.zzg.materialdesign.widgets.fragment.MyItemRecyclerViewAdapter;
 import com.zzg.materialdesign.widgets.fragment.dummy.CardsContent;
 import com.zzg.materialdesign.widgets.fragment.dummy.DummyContent;
 import com.zzg.materialdesign.widgets.swipemenu.SwipeMenu;
@@ -40,14 +45,18 @@ import com.zzg.materialdesign.widgets.swipemenu.SwipeMenuListView;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ItemFragment.OnListFragmentInteractionListener,CardViewFragment.OnListFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ItemFragment.OnListFragmentInteractionListener, CardViewFragment.OnListFragmentInteractionListener {
 
     private SwipeRefreshLayout mSwipeLayout;
+    private SearchView mSearchView;
+    private String mSearchText;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.app_bar_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -66,25 +75,14 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, PrivateInfoActivity.class));
             }
         });
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),
                 this);
         viewPager.setAdapter(adapter);
 
         //TabLayout
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
-    }
-
-    /**
-     * dp转px
-     *
-     * @param dp
-     * @return
-     */
-    private int dp2px(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                getResources().getDisplayMetrics());
     }
 
     @Override
@@ -101,7 +99,56 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        final MenuItem item = menu.findItem(R.id.ab_search);
+        mSearchView = (SearchView) MenuItemCompat.getActionView(item);
+        mSearchView.setIconified(false);//设置一开始处于searchView的状态
+        mSearchView.setIconifiedByDefault(true);//设置不隐藏SearchView
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mSearchText = query;
+                doSearch();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mSearchText = newText;
+                doSearch();
+                return true;
+            }
+        });
         return true;
+    }
+
+    /**
+     * 搜索过滤
+     */
+    private void doSearch() {
+        //获取当前主页面下的tab
+        int selectedTabPosition = tabLayout.getSelectedTabPosition();
+        switch (selectedTabPosition) {
+            case 0:
+                filterList(selectedTabPosition);
+                break;
+            case 1:
+                break;
+        }
+    }
+
+    /**
+     * 过滤list
+     * @param selectedTabPosition
+     */
+    private void filterList(int selectedTabPosition) {
+        View childAt = viewPager.getChildAt(selectedTabPosition);
+        //因为所有的list都用recycleview所以都强转成recycleview
+        RecyclerView recyclerView = (RecyclerView) childAt;
+        MyItemRecyclerViewAdapter adapter = (MyItemRecyclerViewAdapter)recyclerView.getAdapter();
+        adapter.filter(mSearchText);
+        //获取tab下面对应的数据list
+        //根据mSearchText过滤list生成新list
+        //高亮新list中包含mSearchText的字段
     }
 
     @Override
@@ -116,7 +163,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             return true;
         }
+        if (id == R.id.ab_search) {
 
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -125,12 +175,12 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_camera) {
 
         } else if (id == R.id.nav_gallery) {
             "1111".substring(10);
         } else if (id == R.id.nav_slideshow) {
+
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -143,52 +193,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-    private void delete(ApplicationInfo item) {
-        // delete app
-        try {
-            Intent intent = new Intent(Intent.ACTION_DELETE);
-            intent.setData(Uri.fromParts("package", item.packageName, null));
-            startActivity(intent);
-        } catch (Exception e) {
-        }
-    }
-
-    private void open(ApplicationInfo item) {
-        // open app
-        Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
-        resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        resolveIntent.setPackage(item.packageName);
-        List<ResolveInfo> resolveInfoList = getPackageManager()
-                .queryIntentActivities(resolveIntent, 0);
-        if (resolveInfoList != null && resolveInfoList.size() > 0) {
-            ResolveInfo resolveInfo = resolveInfoList.get(0);
-            String activityPackageName = resolveInfo.activityInfo.packageName;
-            String className = resolveInfo.activityInfo.name;
-
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
-            ComponentName componentName = new ComponentName(
-                    activityPackageName, className);
-
-            intent.setComponent(componentName);
-            startActivity(intent);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        Log.e("TAG", "调用了OnResume");
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        Log.e("TAG", "调用了onPause");
-        super.onPause();
-    }
-
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
