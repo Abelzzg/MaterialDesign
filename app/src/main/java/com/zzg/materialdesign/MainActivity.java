@@ -138,17 +138,17 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * 过滤list
+     *
      * @param selectedTabPosition
      */
     private void filterList(int selectedTabPosition) {
         View childAt = viewPager.getChildAt(selectedTabPosition);
         //因为所有的list都用recycleview所以都强转成recycleview
         RecyclerView recyclerView = (RecyclerView) childAt;
-        MyItemRecyclerViewAdapter adapter = (MyItemRecyclerViewAdapter)recyclerView.getAdapter();
+        MyItemRecyclerViewAdapter adapter = (MyItemRecyclerViewAdapter) recyclerView.getAdapter();
         adapter.filter(mSearchText);
-        //获取tab下面对应的数据list
-        //根据mSearchText过滤list生成新list
         //高亮新list中包含mSearchText的字段
+        //TODO
     }
 
     @Override

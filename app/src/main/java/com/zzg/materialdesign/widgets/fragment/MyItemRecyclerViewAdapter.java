@@ -1,7 +1,12 @@
 package com.zzg.materialdesign.widgets.fragment;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +33,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     private final OnListFragmentInteractionListener mListener;
 
     private boolean isSearching = false;
+    private String mSearchText;
 
     public MyItemRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
         mValuesAll = items;
@@ -45,9 +51,16 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+
+
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        if (isSearching) {
+            holder.mIdView.setText(emphasizeWord(mValues.get(position).id));
+            holder.mContentView.setText(emphasizeWord(mValues.get(position).content));
+        } else {
+            holder.mIdView.setText(mValues.get(position).id);
+            holder.mContentView.setText(mValues.get(position).content);
+        }
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +71,17 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 }
             }
         });
+    }
+
+    private SpannableStringBuilder emphasizeWord(String text) {
+        String str = text;
+        int start = str.indexOf(mSearchText);
+        int end = start + (mSearchText).length();
+        SpannableStringBuilder style = new SpannableStringBuilder(str);
+//        int size = 20;  //20px
+//        style.setSpan(new AbsoluteSizeSpan(), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        style.setSpan(new ForegroundColorSpan(Color.GREEN), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return style;
     }
 
     @Override
@@ -84,14 +108,15 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         }
     }
 
-    public void filter(String mSearchText) {
-        if (TextUtils.isEmpty(mSearchText)) {
+    public void filter(String searchText) {
+        mSearchText = searchText;
+        if (TextUtils.isEmpty(searchText)) {
             isSearching = false;
             mValues = mValuesAll;
         } else {
             isSearching = true;
             DummyItemFilter dummyItemFilter = new DummyItemFilter(mValuesAll);
-            mValues = dummyItemFilter.filte(mSearchText);
+            mValues = dummyItemFilter.filte(searchText);
         }
         this.notifyDataSetChanged();
     }
