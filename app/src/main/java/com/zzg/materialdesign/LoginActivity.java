@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "hello@qq.com:hello", "world@example.com:world"
+            "hello@qq.com:hello", "world@qq.com:world"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -323,7 +323,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
             // TODO: register the new account here.
-            return true;
+            return false;
         }
 
         @Override
