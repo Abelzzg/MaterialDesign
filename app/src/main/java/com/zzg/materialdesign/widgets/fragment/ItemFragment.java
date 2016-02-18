@@ -10,13 +10,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.zzg.materialdesign.R;
 import com.zzg.materialdesign.widgets.fragment.dummy.DummyContent;
 import com.zzg.materialdesign.widgets.fragment.dummy.DummyContent.DummyItem;
 import com.zzg.materialdesign.widgets.swipemenu.SwipeMenuListView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A fragment representing a list of Items.

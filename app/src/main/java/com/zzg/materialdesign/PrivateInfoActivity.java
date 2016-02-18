@@ -8,8 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 
+import com.zzg.materialdesign.widgets.flashview.FlashView;
+import com.zzg.materialdesign.widgets.flashview.constants.EffectConstants;
+
+import java.util.ArrayList;
+
 public class PrivateInfoActivity extends AppCompatActivity {
     FloatingActionButton fab;
+    private ArrayList<String> imageUrls;
+    private FlashView flashView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,15 @@ public class PrivateInfoActivity extends AppCompatActivity {
                 snackbar.show();
             }
         });
+
+        flashView=(FlashView)findViewById(R.id.flash_view);
+        imageUrls=new ArrayList<String>();
+        imageUrls.add("drawable://"+R.drawable.card1);
+        imageUrls.add("drawable://"+R.drawable.card2);
+        imageUrls.add("drawable://"+R.drawable.card3);
+        imageUrls.add("drawable://"+R.drawable.card4);
+        flashView.setImageUris(imageUrls);
+        flashView.setEffect(EffectConstants.DEFAULT_EFFECT);//更改图片切换的动画效果
     }
 
     @Override

@@ -1,14 +1,9 @@
 package com.zzg.materialdesign;
 
-import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.ResolveInfo;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -21,28 +16,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zzg.materialdesign.widgets.flashview.FlashView;
+import com.zzg.materialdesign.widgets.flashview.constants.EffectConstants;
 import com.zzg.materialdesign.widgets.fragment.CardViewFragment;
 import com.zzg.materialdesign.widgets.fragment.ItemFragment;
 import com.zzg.materialdesign.widgets.fragment.MyItemRecyclerViewAdapter;
 import com.zzg.materialdesign.widgets.fragment.dummy.CardsContent;
 import com.zzg.materialdesign.widgets.fragment.dummy.DummyContent;
-import com.zzg.materialdesign.widgets.swipemenu.SwipeMenu;
-import com.zzg.materialdesign.widgets.swipemenu.SwipeMenuCreator;
-import com.zzg.materialdesign.widgets.swipemenu.SwipeMenuItem;
-import com.zzg.materialdesign.widgets.swipemenu.SwipeMenuListView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ItemFragment.OnListFragmentInteractionListener, CardViewFragment.OnListFragmentInteractionListener {
@@ -52,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     private String mSearchText;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +56,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main);
         headerView.findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +66,10 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, PrivateInfoActivity.class));
             }
         });
+
+
+
+
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),
                 this);
@@ -99,10 +94,29 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        //分享按钮
+        MenuItem shareItem = menu.findItem(R.id.action_share);
+//        ShareActionProvider myShareActionProvider =
+//                (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
+
+
+//        //消除历史分享记录
+//        if (myShareActionProvider != null) {
+//            ShareActionProvider.OnShareTargetSelectedListener listener = new ShareActionProvider.OnShareTargetSelectedListener() {
+//                public boolean onShareTargetSelected(
+//                        ShareActionProvider source, Intent intent) {
+//                    startActivity(intent);
+//                    return true;
+//                }
+//            };
+//            myShareActionProvider.setShareHistoryFileName(null);
+//            myShareActionProvider.setOnShareTargetSelectedListener(listener);
+//            myShareActionProvider.setShareIntent(myShareIntent);
+//        }
+        //搜索按钮
         final MenuItem item = menu.findItem(R.id.ab_search);
         mSearchView = (SearchView) MenuItemCompat.getActionView(item);
-        mSearchView.setIconified(false);//设置一开始处于searchView的状态
-        mSearchView.setIconifiedByDefault(true);//设置不隐藏SearchView
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -124,6 +138,7 @@ public class MainActivity extends AppCompatActivity
     /**
      * 搜索过滤
      */
+
     private void doSearch() {
         //获取当前主页面下的tab
         int selectedTabPosition = tabLayout.getSelectedTabPosition();
@@ -147,8 +162,7 @@ public class MainActivity extends AppCompatActivity
         RecyclerView recyclerView = (RecyclerView) childAt;
         MyItemRecyclerViewAdapter adapter = (MyItemRecyclerViewAdapter) recyclerView.getAdapter();
         adapter.filter(mSearchText);
-        //高亮新list中包含mSearchText的字段
-        //TODO
+
     }
 
     @Override
@@ -163,12 +177,23 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             return true;
         }
-        if (id == R.id.ab_search) {
-
+        if (id == R.id.action_share) {
+            //分享一张图片
+            Intent myShareIntent = new Intent(Intent.ACTION_SEND);
+            myShareIntent.setType("image/png");
+//            Uri uri =  Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
+//                    + getResources().getResourcePackageName(R.drawable.card1) + "/"
+//                    + getResources().getResourceTypeName(R.drawable.card1) + "/"
+//                    + getResources().getResourceEntryName(R.drawable.card1));
+            Uri uri = Uri.parse("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png");
+            myShareIntent.putExtra(Intent.EXTRA_STREAM,uri);
+            startActivity(Intent.createChooser(myShareIntent,
+                    "分享 图片"));
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -178,7 +203,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
 
         } else if (id == R.id.nav_gallery) {
-            "1111".substring(10);
+
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -202,6 +227,5 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onListFragmentInteraction(CardsContent.CardItem item) {
         Toast.makeText(this, item.details + "    ", Toast.LENGTH_SHORT).show();
-
     }
 }
